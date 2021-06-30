@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Holly Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,700" rel="stylesheet">
+    <link rel="stylesheet" href=" {{ url_for('static' , filename = 'dist/css/style.css') }}">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+<body class="is-boxed has-animations">
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-large-bg"><span></span></div>
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <h1 class="m-0">
+                            <a href="#">
+                                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>Hotels</title>
+                                    <defs>
+                                        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="logo-b">
+                                            <stop stop-color="#A8A3F6" offset="0%"/>
+                                            <stop stop-color="#DAD8FF" offset="100%"/>
+                                        </linearGradient>
+                                        <path d="M27.098 7.53l-9.441 9.44a8.084 8.084 0 0 0-.625.702 8 8 0 0 0 12.173 10.377l9.24-9.24A16.02 16.02 0 0 1 39 23c0 8.837-7.163 16-16 16S7 31.837 7 23 14.163 7 23 7c1.416 0 2.79.184 4.098.53z" id="logo-a"/>
+                                        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="logo-d">
+                                            <stop stop-color="#DAD8FF" offset="0%"/>
+                                            <stop stop-color="#857DF3" offset="100%"/>
+                                        </linearGradient>
+                                        <path d="M27.098 7.53l-9.441 9.44a8.084 8.084 0 0 0-.625.702 8 8 0 0 0 12.173 10.377l9.24-9.24A16.02 16.02 0 0 1 39 23c0 8.837-7.163 16-16 16S7 31.837 7 23 14.163 7 23 7c1.416 0 2.79.184 4.098.53z" id="logo-c"/>
+                                    </defs>
+                                    <g transform="translate(-7 -7)" fill="none" fill-rule="evenodd">
+                                        <use fill="url(#logo-b)" transform="rotate(45 23 23)" xlink:href="#logo-a"/>
+                                        <use fill="url(#logo-d)" transform="scale(-1 1) rotate(45 0 -32.527)" xlink:href="#logo-c"/>
+                                    </g>
+                                </svg>
+                            </a>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy">
+                            <div class="container-sm">
+                                <h1 class="hero-title h2-mobile mt-0 is-revealing">Hotels in Patnitop</h1>
+                                <p class="hero-paragraph h4 is-revealing">Get the name , latest price , ratings , address and phone number of all the hotels.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table border = 1>
+                    <th> Name </th>
+                    <th> Price </th>
+                    <th> Rating </th>
+                    <th> Address </th>
+                    <th> Phone Number </th>
+                    {% for item in data %}
+
+                    <tr>
+                       <th> {{ item.name }} </th>
+                       <td> {{ item.price }} </td>
+                       <td> {{ item.rating }} </td>
+                       <td> {{ item.address }} </td>
+                       <td> {{ item.phone_number }} </td>
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            <!-- <ul>
+                {% for item in data %}
+                    <li>{{item.name}}</li>
+                    <li>{{item.price}}</li>
+                    <li>{{item.rating}}</li>
+                    <li>{{item.address}}</li>
+                    <li>{{item.phone_number}}</li>
+                {% endfor %}
+            </ul> -->   
+            </section>
+            
+        </main>
+    </div>
+    <script src="{{ url_for('static' , filename = 'dist/js/main.min.js') }}"></script>
+</body>
+</html>
