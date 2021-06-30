@@ -2,8 +2,11 @@ from flask import Flask,render_template,request
 import selenium
 from selenium import webdriver
 import time
-chrome_path = r"C:\Users\Abhay Mahajan\Downloads\chromedriver.exe"
-driver = webdriver.Chrome(chrome_path)
+# chrome_path = r"C:\Users\Abhay Mahajan\Downloads\chromedriver.exe"
+options = ChromeOptions()
+options.binary_location = "/app/.apt/usr/bin/google-chrome-stable"
+driver = webdriver.Chrome(chrome_options=options)
+# driver = webdriver.Chrome(chrome_path)
 driver.get('https://www.google.com/travel/hotels/Patnitop?g2lb=2502548%2C2503781%2C4258168%2C4270442%2C4306835%2C4308226%2C4317915%2C4371334%2C4401769%2C4419364%2C4482438%2C4486153%2C4509341%2C4515403%2C4518326%2C4536454%2C4545890%2C4270859%2C4284970%2C4291517&hl=en-IN&gl=in&ssta=1&ap=EgAwA2gB&q=hotels%20in%20patnitop&rp=EJGA_PHX1bqC1QEQ19a7_Ie0l5XUARDf46Xh8viNnHkQnIq2w5yr_OxVOAFAAEgCogEIUGF0bml0b3A&ictx=1&sa=X&utm_campaign=sharing&utm_medium=link&utm_source=htls&ts=CAESDgoCCAMKAggDCgIIAxAAGiwKDhIKOghQYXRuaXRvcBoAEhoSFAoHCOUPEAcYCRIHCOUPEAcYChgBMgIIASoLCgcoAToDSU5SGgA&ved=0CAAQ5JsGahgKEwiw3aOtkr_xAhUAAAAAHQAAAAAQwAI')
 page = 0
 hrefs = []
